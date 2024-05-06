@@ -3,6 +3,7 @@ import { useState } from "react";
 function Checkin() {
     const [checkedIn, setCheckedIn] = useState(false);
     const [checkInId, setCheckInId] = useState(null); // State to store the check-in id
+    const [selectedCategory, setSelectedCategory] = useState("");
 
     const handleCheckIn = async () => {
         try {
@@ -18,7 +19,7 @@ function Checkin() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    // You can include additional check-in data here if needed
+                    category: selectedCategory
                 }),
             });
             if (response.ok) {
@@ -48,7 +49,7 @@ function Checkin() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    // You can include additional check-out data here if needed
+                    
                 }),
             });
             if (response.ok) {
@@ -66,6 +67,14 @@ function Checkin() {
     return (
         <div>
             <h1>Check in</h1>
+            <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+                <option value="">Select category</option>
+                <option value="Läsa">Läsa</option>
+                <option value="Programmera">Programmera</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Paus">Paus</option>
+            </select>
+            <br />
             {checkedIn ? (
                 <button onClick={handleCheckOut}>Check out</button>
             ) : (
