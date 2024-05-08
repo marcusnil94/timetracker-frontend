@@ -17,6 +17,7 @@ function Menu(props: MenuProps) {
                 <button onClick={() => props.setPage("login")}>Logga in</button>
             )}
             <button onClick={() => props.setPage("checkin")}>Incheckning</button>
+            <button onClick={() => props.setPage("usercheckins")}>Mina Incheckningar</button>
         </div>
     );
 }

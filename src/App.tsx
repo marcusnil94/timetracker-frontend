@@ -6,11 +6,12 @@ import Start from './components/Start';
 import Login from './components/Login';
 import Checkin from './components/Checkin';
 import Register from './components/Register';
+import UserCheckins from './components/UserCheckins';
 
 
 function App() {
   const [page, setPage] = useState<string>("");
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false); // State to track login status
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   useEffect(() => {
       let pageUrl = page;
@@ -36,9 +37,9 @@ function App() {
   }, [page])
 
   const handleLogout = () => {
-      setIsLoggedIn(false); // Set isLoggedIn to false when user logs out
-      localStorage.removeItem('userId'); // Remove userId from localStorage
-      setPage("start"); // Redirect user to Start page after logout
+      setIsLoggedIn(false); 
+      localStorage.removeItem('userId'); 
+      setPage("start"); 
   };
 
   return (
@@ -50,7 +51,8 @@ function App() {
               {
                   "register": <Register />,
                   "login": <Login setIsLoggedIn={setIsLoggedIn} setPage={setPage}/>,
-                  "checkin": <Checkin />
+                  "checkin": <Checkin />,
+                  "usercheckins": <UserCheckins />
               }[page] || <Start />
           }
       </>

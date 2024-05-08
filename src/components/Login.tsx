@@ -6,12 +6,12 @@ const Login: React.FC<{ setIsLoggedIn: (isLoggedIn: boolean) => void; setPage: (
     const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
-        // Check if userId is present in localStorage
+        
         const userId = localStorage.getItem('userId');
         if (userId) {
-            setIsLoggedIn(true); // If userId is present, user is logged in
+            setIsLoggedIn(true); 
         }
-    }, []); // Run only once on component mount
+    }, []); 
 
     const handleLogin = async () => {
         try {
@@ -23,10 +23,10 @@ const Login: React.FC<{ setIsLoggedIn: (isLoggedIn: boolean) => void; setPage: (
                 body: JSON.stringify({ email, password }),
             });
             if (response.ok) {
-                const userId = await response.text(); // Extract userId from response body
+                const userId = await response.text(); 
                 localStorage.setItem('userId', userId);
                 console.log('User logged in successfully');
-                setIsLoggedIn(true); // Update login status
+                setIsLoggedIn(true); 
                 setPage('start');
                 
             } else {

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Checkin() {
     const [checkedIn, setCheckedIn] = useState(false);
-    const [checkInId, setCheckInId] = useState(null); // State to store the check-in id
+    const [checkInId, setCheckInId] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState("");
 
     const handleCheckIn = async () => {
@@ -25,8 +25,8 @@ function Checkin() {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Check-in successful');
-                setCheckInId(data.id); // Save the check-in id to state
-                setCheckedIn(true); // Update state to indicate that the user has checked in
+                setCheckInId(data.id); 
+                setCheckedIn(true); 
             } else {
                 console.error('Failed to check in');
             }
@@ -44,7 +44,7 @@ function Checkin() {
             }
 
             const response = await fetch(`http://localhost:8080/checkout/${checkInId}`, {
-                method: 'PATCH', // Use PATCH method
+                method: 'PATCH', 
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -54,8 +54,8 @@ function Checkin() {
             });
             if (response.ok) {
                 console.log('Check-out successful');
-                setCheckedIn(false); // Update state to indicate that the user has checked out
-                setCheckInId(null); // Reset the check-in id
+                setCheckedIn(false); 
+                setCheckInId(null); 
             } else {
                 console.error('Failed to check out');
             }
