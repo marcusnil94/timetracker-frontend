@@ -13,7 +13,7 @@ function Checkin() {
                 return;
             }
             
-            const response = await fetch(`http://localhost:8080/checkin/${userId}`, {
+            const response = await fetch(`https://seal-app-du7qr.ondigitalocean.app/checkin/${userId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ function Checkin() {
                 return;
             }
     
-            const response = await fetch(`http://localhost:8080/checkout/${checkInId}`, {
+            const response = await fetch(`https://seal-app-du7qr.ondigitalocean.app/checkout/${checkInId}`, {
                 method: 'PATCH', 
                 headers: {
                     'Content-Type': 'application/json',

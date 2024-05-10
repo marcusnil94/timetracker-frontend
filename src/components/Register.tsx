@@ -10,7 +10,7 @@ const Register: React.FC = () => {
 
     const handleRegister = async () => {
         try {
-            const response = await fetch("http://localhost:8080/user", {
+            const response = await fetch("https://seal-app-du7qr.ondigitalocean.app/user", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -12,7 +12,7 @@ function Stats() {
                     return;
                 }
 
-                const response = await fetch(`http://localhost:8080/weekstats/${userId}`);
+                const response = await fetch(`https://seal-app-du7qr.ondigitalocean.app/weekstats/${userId}`);
                 if (response.ok) {
                     const data = await response.json();
                     setWeeklyStats(data);

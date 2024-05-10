@@ -19,7 +19,7 @@ function UserCheckins() {
                     return;
                 }
 
-                const response = await fetch(`http://localhost:8080/checkins/${userId}`);
+                const response = await fetch(`https://seal-app-du7qr.ondigitalocean.app/checkins/${userId}`);
                 if (response.ok) {
                     const data = await response.json();
                     setCheckins(data);
