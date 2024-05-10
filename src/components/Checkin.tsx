@@ -42,20 +42,20 @@ function Checkin() {
                 console.error('User not logged in or no check-in found');
                 return;
             }
-
+    
             const response = await fetch(`http://localhost:8080/checkout/${checkInId}`, {
                 method: 'PATCH', 
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                    
-                }),
+                body: JSON.stringify({}),
             });
+    
             if (response.ok) {
                 console.log('Check-out successful');
                 setCheckedIn(false); 
-                setCheckInId(null); 
+                setCheckInId(null);
+    
             } else {
                 console.error('Failed to check out');
             }

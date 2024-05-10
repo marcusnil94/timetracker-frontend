@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Checkin from './components/Checkin';
 import Register from './components/Register';
 import UserCheckins from './components/UserCheckins';
+import Stats from './components/Stats';
 
 
 function App() {
@@ -52,7 +53,8 @@ function App() {
                   "register": <Register />,
                   "login": <Login setIsLoggedIn={setIsLoggedIn} setPage={setPage}/>,
                   "checkin": <Checkin />,
-                  "usercheckins": <UserCheckins />
+                  "usercheckins": <UserCheckins />,
+                  "stats": <Stats />
               }[page] || <Start />
           }
       </>
