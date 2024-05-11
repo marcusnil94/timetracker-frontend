@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Checkin() {
-    const [checkedIn, setCheckedIn] = useState(false);
-    const [checkInId, setCheckInId] = useState(null);
-    const [selectedCategory, setSelectedCategory] = useState("");
+    const [checkedIn, setCheckedIn] = useState<boolean>(false);
+    const [checkInId, setCheckInId] = useState<string | null>(null);
+    const [selectedCategory, setSelectedCategory] = useState<string>("");
+
+    useEffect(() => {
+        const storedCheckInId = localStorage.getItem('checkInId');
+        const storedCheckedIn = localStorage.getItem('checkedIn');
+        
+        if (storedCheckInId && storedCheckedIn) {
+            setCheckInId(storedCheckInId);
+            setCheckedIn(storedCheckedIn === 'true');
+        }
+    }, []);
 
     const handleCheckIn = async () => {
         try {
@@ -25,6 +35,8 @@ function Checkin() {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Check-in successful');
+                localStorage.setItem('checkInId', data.id);
+                localStorage.setItem('checkedIn', 'true');
                 setCheckInId(data.id); 
                 setCheckedIn(true); 
             } else {
@@ -53,6 +65,8 @@ function Checkin() {
     
             if (response.ok) {
                 console.log('Check-out successful');
+                localStorage.removeItem('checkInId');
+                localStorage.setItem('checkedIn', 'false');
                 setCheckedIn(false); 
                 setCheckInId(null);
     
