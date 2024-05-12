@@ -39,7 +39,7 @@ function UserCheckins() {
             <h2>Mina Incheckningar</h2>
             <ul>
                 {checkins.map(checkin => (
-                    <div key={checkin.id}>
+                    <div key={checkin.id} className="checkinItem">
                         <li>Uppgift: {checkin.category}</li>
                         <li>Checkin-tid: {checkin.checkInTime}</li>
                         <li>Utcheckning-tid: {checkin.checkOutTime}</li>

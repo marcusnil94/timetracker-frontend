@@ -1,24 +1,22 @@
-
-
 interface MenuProps {
     setPage: (page: string) => void;
     isLoggedIn: boolean;
     handleLogout: () => void;
 }
 
-function Menu(props: MenuProps) {
+function Menu({ setPage, isLoggedIn, handleLogout }: MenuProps) {
     return (
         <div>
-            <button onClick={() => props.setPage("start")}>Start</button>
-            <button onClick={() => props.setPage("register")}>Skapa ny användare</button>
-            {props.isLoggedIn ? (
-                <button onClick={props.handleLogout}>Logga ut</button>
+            <button onClick={() => setPage("start")}>Start</button>
+            {!isLoggedIn && <button onClick={() => setPage("register")}>Skapa ny användare</button>}
+            {isLoggedIn ? (
+                <button onClick={handleLogout}>Logga ut</button>
             ) : (
-                <button onClick={() => props.setPage("login")}>Logga in</button>
+                <button onClick={() => setPage("login")}>Logga in</button>
             )}
-            <button onClick={() => props.setPage("checkin")}>Incheckning</button>
-            <button onClick={() => props.setPage("usercheckins")}>Mina Incheckningar</button>
-            <button onClick={() => props.setPage("stats")}>Statistik</button>
+            <button onClick={() => setPage("checkin")}>Incheckning</button>
+            <button onClick={() => setPage("usercheckins")}>Mina Incheckningar</button>
+            <button onClick={() => setPage("stats")}>Veckostatistik</button>
         </div>
     );
 }

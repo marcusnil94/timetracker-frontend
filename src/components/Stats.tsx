@@ -35,8 +35,8 @@ function Stats() {
                     <h3>Vecka {weeklyStat.weekStartDate} - {weeklyStat.weekEndDate}</h3>
                     <ul>
                     {Object.entries(weeklyStat.stats).map(([category, data]) => (
-                        <li key={category}>
-                            Kategori: {category}, Totalt tid: {data.totalHours} timmar {data.totalMinutes} minuter
+                        <li key={category} className='checkinItem'>
+                            Kategori: {category}, Total tid: {data.totalHours} timmar {data.totalMinutes} minuter
                         </li>
                         ))}
                     </ul>

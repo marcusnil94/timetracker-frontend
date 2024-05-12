@@ -81,10 +81,10 @@ function Checkin() {
     return (
         <div>
             <h1>Check in</h1>
+            <h3>Välj en uppgift och tryck på Check in</h3>
             <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
-                <option value="">Select category</option>
-                <option value="Läsa">Läsa</option>
                 <option value="Programmera">Programmera</option>
+                <option value="Läsa">Läsa</option>
                 <option value="Lunch">Lunch</option>
                 <option value="Paus">Paus</option>
             </select>
